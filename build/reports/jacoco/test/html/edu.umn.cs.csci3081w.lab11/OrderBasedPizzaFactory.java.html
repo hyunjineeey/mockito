@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>OrderBasedPizzaFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lab11</a> &gt; <a href="index.source.html" class="el_package">edu.umn.cs.csci3081w.lab11</a> &gt; <span class="el_source">OrderBasedPizzaFactory.java</span></div><h1>OrderBasedPizzaFactory.java</h1><pre class="source lang-java linenums">package edu.umn.cs.csci3081w.lab11;
+
+<span class="fc" id="L3">public class OrderBasedPizzaFactory extends PizzaFactory {</span>
+
+  public Pizza makePizza(String type, String toppings){
+<span class="fc" id="L6">    Pizza pizza = null;</span>
+<span class="fc bfc" id="L7" title="All 2 branches covered.">    if(type.equals(&quot;margherita&quot;)){</span>
+<span class="fc" id="L8">      pizza = new Margherita();</span>
+    }
+<span class="pc bpc" id="L10" title="1 of 2 branches missed.">    else if(type.equals(&quot;napoli&quot;)){</span>
+<span class="nc" id="L11">      pizza = new Napoli();</span>
+    }
+    else{
+<span class="fc" id="L14">      return null;</span>
+    }
+<span class="fc" id="L16">    String toppingsArray[] = toppings.split(&quot;,&quot;);</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">    for(String topping:toppingsArray){</span>
+<span class="pc bpc" id="L18" title="1 of 2 branches missed.">      if(topping.equals(&quot;olives&quot;)){</span>
+<span class="fc" id="L19">        pizza = new OlivesDecorator(pizza);</span>
+      }
+<span class="nc bnc" id="L21" title="All 2 branches missed.">      else if(topping.equals(&quot;mushrooms&quot;)) {</span>
+<span class="nc" id="L22">        pizza = new MushroomsDecorator(pizza);</span>
+      }
+<span class="nc bnc" id="L24" title="All 2 branches missed.">      else if(topping.equals(&quot;prosciutto&quot;)) {</span>
+<span class="nc" id="L25">        pizza = new ProsciuttoDecorator(pizza);</span>
+      }
+    }
+<span class="fc" id="L28">    return pizza;</span>
+  }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
